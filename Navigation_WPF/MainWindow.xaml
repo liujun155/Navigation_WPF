@@ -26,8 +26,9 @@
             </StackPanel>
 
             <Grid Grid.Column="1">
-                <Border Background="#212529" CornerRadius="0 20 20 0"/>
-                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+                <Border Background="#212529" CornerRadius="0 20 20 0">
+                    <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+                </Border>
             </Grid>
 
             <Canvas Grid.Column="1">

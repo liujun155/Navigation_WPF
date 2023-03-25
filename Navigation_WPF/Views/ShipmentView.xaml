@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="622">
     <Grid>
-        <Border>
+        <Border CornerRadius="0 20 20 0">
             <Border.Background>
                 <ImageBrush ImageSource="../Themes/Images/shipment_page.png" Stretch="None"/>
             </Border.Background>
