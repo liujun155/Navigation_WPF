@@ -1,0 +1,71 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Navigation_WPF">
+
+
+    <Style TargetType="{x:Type local:MenuButton}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="#DBDBDB"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Fonts/#Rubik"/>
+        <Setter Property="Margin" Value="0 2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:MenuButton}">
+                    <Border x:Name="border"
+                            Width="225"
+                            Height="50"
+                            BorderThickness="0">
+                        <Border.Background>
+                            <SolidColorBrush x:Name="borderBackground" Color="#272b2f"/>
+                        </Border.Background>
+                        <Grid>
+                            <Border x:Name="statusBorder"
+                                    Background="#ffffff"
+                                    Width="5"
+                                    Height="40"
+                                    CornerRadius="5"
+                                    Visibility="Collapsed"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="30"
+                                       Height="30"
+                                       Margin="20 0"
+                                       Source="{TemplateBinding ImgSource}"/>
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="statusBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        
+                        <EventTrigger RoutedEvent="Border.MouseEnter" SourceName="border">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#3e434a" Duration="0:0:0.3" Storyboard.TargetName="borderBackground" Storyboard.TargetProperty="Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Border.MouseLeave" SourceName="border">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#272b2f" Duration="0:0:0.3" Storyboard.TargetName="borderBackground" Storyboard.TargetProperty="Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#212529"/>
+                            <Setter TargetName="statusBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="Navigation_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Navigation_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="850"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="{x:Null}">
+    <Border Background="#272b2f" CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel VerticalAlignment="Center">
+                <local:MenuButton Content="Home" Command="{Binding MenuClickCommand}" CommandParameter="Home" IsChecked="True" ImgSource="Themes/Images/img_home.png" />
+                <local:MenuButton Content="Customer" Command="{Binding MenuClickCommand}" CommandParameter="Customer" ImgSource="Themes/Images/img_customer.png"/>
+                <local:MenuButton Content="Products" Command="{Binding MenuClickCommand}" CommandParameter="Product" ImgSource="Themes/Images/img_product.png"/>
+                <local:MenuButton Content="Orders" Command="{Binding MenuClickCommand}" CommandParameter="Order" ImgSource="Themes/Images/img_order.png"/>
+                <local:MenuButton Content="Transactions" Command="{Binding MenuClickCommand}" CommandParameter="Transaction" ImgSource="Themes/Images/img_transaction.png"/>
+                <local:MenuButton Content="Shipments" Command="{Binding MenuClickCommand}" CommandParameter="Shipment" ImgSource="Themes/Images/img_shipment.png"/>
+                <local:MenuButton Content="Settings" Command="{Binding MenuClickCommand}" CommandParameter="Setting" ImgSource="Themes/Images/img_setting.png"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Border Background="#212529" CornerRadius="0 20 20 0"/>
+                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+            </Grid>
+
+            <Canvas Grid.Column="1">
+                <Button Style="{StaticResource CloseBtnStyle}" Command="{Binding CloseCommand}" Canvas.Top="20" Canvas.Right="20"></Button>
+            </Canvas>
+        </Grid>
+    </Border>
+</Window>
