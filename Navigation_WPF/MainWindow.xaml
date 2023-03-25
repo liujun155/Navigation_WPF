@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Navigation_WPF"
+        xmlns:transitionals="clr-namespace:Transitionals;assembly=Transitionals"
+        xmlns:transitionalsControls="clr-namespace:Transitionals.Controls;assembly=Transitionals"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="850"
         WindowStyle="None" AllowsTransparency="True"
@@ -27,7 +29,8 @@
 
             <Grid Grid.Column="1">
                 <Border Background="#212529" CornerRadius="0 20 20 0">
-                    <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+                    <!--<ContentControl x:Name="Pages" Content="{Binding CurrentView}" />-->
+                    <transitionalsControls:TransitionElement x:Name="Pages" Content="{Binding CurrentView}" />
                 </Border>
             </Grid>
 

@@ -24,6 +24,8 @@ namespace Navigation_WPF
         {
             InitializeComponent();
             this.DataContext = new MainViewModel();
+
+            this.Pages.Transition = new Transitionals.Transitions.TranslateTransition();
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
